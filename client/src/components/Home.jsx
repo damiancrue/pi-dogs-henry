@@ -123,6 +123,7 @@ const pages = (pageNumber=>(
                 </div>
             </div>
             <div className='cards'>
+                {allDogs.length===0?<div className='landing'>Loading...</div>:''}            
             {currentDogs?.map((dog) => {
                 return (
                     <div className='card' key={dog.id} >

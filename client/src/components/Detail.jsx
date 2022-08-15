@@ -36,7 +36,7 @@ export default function Detail(props) {
             <h5 className="info">Weight: {dog[0].weightMin} Kgs- {dog[0].weightMax} Kgs</h5>
             <h5 className="info">Life span: {dog[0].life_span}</h5>
             <div>
-            <h5 className="info">Temperament: {dog[0].createdInDb?dog[0].temperaments.map(temperament=> <p> - {temperament.name}</p>) :dog[0].temperaments.map(temperament=> <p> - {temperament}</p>)}
+            <h5 className="info">Temperament: {dog[0].createdInDb?dog[0].temperaments.map(temperament=> <p key={temperament.name}> - {temperament.name}</p>) :dog[0].temperaments.map(temperament=> <p key={temperament}> - {temperament}</p>)}
             </h5>
             </div>
             <Link to="/home" > <button onClick={id="zz"} className='button'> back to home</button></Link> 

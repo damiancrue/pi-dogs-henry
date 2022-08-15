@@ -83,3 +83,19 @@ export function getDetail (id) {
     }
     }
 }
+
+
+
+// Promise:
+// export function getDetail(id){
+//     return function (dispatch){
+//         var json = axios.get('http://localhost:3001/dogs/' + id)
+//             .then(res => res.data)
+//             .catch(err => console.log(err));
+//         return dispatch({
+//             type: GET_DETAIL,
+//             payload: json,
+//         })
+//     }
+// }
+

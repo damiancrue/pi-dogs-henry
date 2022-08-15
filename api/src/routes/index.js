@@ -24,7 +24,7 @@ router.get('/dogs', async (req, res, next) => {
                 res.status(200).send(dogName) :
                 res.send([{
                     name: `Apologies, the breed ${name} is not in our database.`,// ey macho, no tenemos esa raza de perro
-                    id: '', temperaments: 'If you want, you can add it to the database.', // podes agregarlo si queres
+                    id: '', temperaments: ['If you want, you can add it to the database.'], // podes agregarlo si queres
                 }]);
         } else {
             res.status(200).send(allDogs)
@@ -120,5 +120,6 @@ router.post('/dogs', async (req, res) => {
 catch(e){
 res.status(404).send('please check the data'); // porque? no hay porque?
 }
-});
+})
+
 module.exports = router;

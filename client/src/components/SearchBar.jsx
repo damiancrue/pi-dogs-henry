@@ -16,7 +16,7 @@ function handleInputChange(e) {
 
 function handleSubmit(e) {
     e.preventDefault();
-    dispatch(getNameDogs(name));
+    name.length?dispatch(getNameDogs(name)):alert("Please enter a name");
     setName("")
     page1(1);
 }

@@ -11,8 +11,14 @@ function validateForm(input) {
 if (!input.name) {
     errors.name = "name is required";
     } else if (input.name.match("^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$")==null) {
-    errors.name ="only can use letters and spaces for name";
-    } 
+        errors.name ="only can use letters and spaces for name";
+    } else if (input.name.match(/(\s{2,})/g)!==null) {
+    errors.name ="you can't use two spaces in a row in the breed name";
+    } else if (input.name.length>25 || input.name.length<3) {
+    errors.name ="the breed name must be between 3 and 25 characters";
+    } else if (input.name.match("^[a-zA-ZñÑáéíóúÁÉÍÓÚ]")==null) {
+    errors.name ="the breed name must be begin with a letter";
+    }
 if (!input.heightMin) {
     errors.heightMin ="minimum height is required";
     } else if (input.heightMin<10){ 

@@ -22,6 +22,7 @@ const indexOfFirstDog = indexOfLastDog - dogsPerPage; // 8 - 8 = 0
 const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
 const temperaments = useSelector(state => state.temperaments);
 
+
 const pages = (pageNumber=>(
     setCurrentPage(pageNumber)
 ))
@@ -117,7 +118,7 @@ const pages = (pageNumber=>(
                 </div>
                 </div>
                 <div className='filter-item sbp'>
-                <SearchBar />
+                <SearchBar page1={setCurrentPage}/>
                 <Pages dogsPerPage={dogsPerPage} allDogs={allDogs.length} pages={pages} current ={currentPage}/>
                 </div>
             </div>

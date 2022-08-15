@@ -4,10 +4,6 @@ const getAllDogs = async () => {
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
 
-
-    //const test = dbInfo.map(item => {item.temperaments=item.temperaments.map(temp=> ''.concat(temp.name))});
-    // console.log(fixed);
-    
     const totalInfo = apiInfo.concat(dbInfo).sort((a,b) => {
         return a.name < b.name ? -1 : 1;
     });

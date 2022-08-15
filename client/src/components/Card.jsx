@@ -7,7 +7,7 @@ export default function Card({name,img, temperaments, wMin, wMax, created }) {
       <img className='img'src={img||ouch} alt={name} />
       <h3 className="info">{name.toUpperCase()}</h3>
       {/* <h3>Temperament: {id<200?temperaments:temperaments.map(temperament=> <span>{temperament.name} </span>)}</h3> */}
-      <p className="info">Temperament: <br />{!created?temperaments:temperaments.map(temperament=> <span>{temperament.name}, </span>)}</p>
+      <p className="info">Temperament: <br />{created?temperaments.map(temperament=> <span> - {temperament.name}</span>):temperaments.map(temperament=> <span> - {temperament}</span>)}</p>
       <p className="info">{wMin}Kg - {wMax}Kg</p>
     </div>
   );

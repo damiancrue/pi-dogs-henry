@@ -121,6 +121,7 @@ export default function DogCreate() {
     useEffect(() => {
         dispatch(getTemperaments());
         },[dispatch]);
+    
 
 
     return (
@@ -219,10 +220,13 @@ export default function DogCreate() {
                                 if (a.name < b.name) return -1;
                                 if (a.name > b.name) return 1;
                                 return 0;
-                            }).map((temp) => 
-                       (
-                           <option value={temp.name}>{temp.name}</option> 
-                           )
+                            }).map((temp) => {
+                                return(
+                                    !input.temperaments.includes(temp.name)?
+                                <option value={temp.name}>{temp.name}</option>:
+                                null)
+                            }
+                       
                            )}
                 </select>
                 </div>

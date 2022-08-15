@@ -25,11 +25,10 @@ nav {
   font-size: 1.2em;
 }
 
-/* h1 {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #ffffff;
+ h1 {
+  margin: 20px;
 
-} */
+} 
 h5 {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #000;
@@ -57,7 +56,7 @@ header:hover {
 
 p {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #ccc;
+  color: #333;
 }
 .card p{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -136,7 +135,7 @@ flex-direction: column;
 }
 .detail{
   color: rgb(245, 234, 219);
-  background:#00000022;
+  background:#ffffff66;
   width: 80%;
   max-height: 75%;
   border-radius: 20px;
@@ -148,7 +147,7 @@ flex-direction: column;
 }
 .detailContent {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: justify;
   padding: 3%;
   border-radius: 20px;

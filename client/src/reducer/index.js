@@ -26,14 +26,16 @@ export default function rootReducer(state = initialState, action) {
         case 'FILTER_BY_TEMPERAMENT':
             const allTemp = state.allDogs;
             console.log(action.payload)
-            const tempFiltered = action.payload === 'all' ? allTemp : allTemp.filter(el => {
-                if (typeof (el.temperaments) === 'string') return el.temperaments.includes(action.payload);
+             const tempFiltered = action.payload === 'all' ? allTemp : allTemp.filter(el =>
+            {
+                if (typeof (el.temperaments) === 'string') 
+                return el.temperaments.includes(action.payload);
                 if (Array.isArray(el.temperaments)) {
-                    let temps = el.temperaments.map(el => el.name);
-                    return temps.includes(action.payload);
+                  // let temps = el.temperaments.map(el => el.name);
+                    return el.temperaments.includes(action.payload);
                 }
-                return true;
-            });
+                return true;       
+           });
             tempFiltered.filter(el=>el.temperaments!==null)
             console.log(tempFiltered)
             return {

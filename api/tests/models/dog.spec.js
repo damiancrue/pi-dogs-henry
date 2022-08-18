@@ -1,22 +1,26 @@
-const { Dog, conn } = require('../../src/db.js');
+
+const { Breed, conn } = require('../../src/db.js');
 const { expect } = require('chai');
 
-describe('Dog model', () => {
+describe('Breed', () => {
   before(() => conn.authenticate()
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
     }));
   describe('Validators', () => {
-    beforeEach(() => Dog.sync({ force: true }));
-    describe('name', () => {
-      it('should throw an error if name is null', (done) => {
-        Dog.create({})
-          .then(() => done(new Error('It requires a valid name')))
-          .catch(() => done());
-      });
-      it('should work when its a valid name', () => {
-        Dog.create({ name: 'Pug' });
-      });
-    });
+    it('Only Image', function(done) {
+      Breed.create({
+       imagen: 'Hola',
+      })
+       .then(() => done('No name - should not be created'))
+       .catch(() => done());
+   });
+   it('Only Name', function(done) {
+     Breed.create({
+       name: 'perro',
+     })
+     .then(() => done('No other data - should not be created'))
+     .catch(() => done());
+   });
   });
 });

@@ -5,6 +5,7 @@ export default function Pages ({dogsPerPage, allDogs,pages,current}) {
     for (let i=1; i<=Math.ceil(allDogs/dogsPerPage); i++){
         pageNumbers.push(i);
     }
+
     return (
         <nav >
             <div>Pages</div>
@@ -20,14 +21,3 @@ export default function Pages ({dogsPerPage, allDogs,pages,current}) {
     )
 }
 
-// <nav >
-// <div>Pages</div>
-// <ul className="pages" >
-//     {pageNumbers&&
-//         pageNumbers.map(number=>(
-//             <li className="number" key={number} >
-//            <a onClick={()=>pages(number)}>[{number}]</a> 
-//             </li>
-//         ))}
-// </ul>
-// </nav>

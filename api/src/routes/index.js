@@ -122,4 +122,20 @@ res.status(404).send('please check the data'); // porque? no hay porque?
 }
 })
 
+router.delete('/dogs/:breedId', async (req, res) => {
+    try{
+    const { breedId } = req.params;
+    const breed = await Breed.findOne({
+        where: {
+            id: breedId
+        }
+    });
+    await breed.destroy();
+    res.status(200).send('Breed deleted');
+    }
+    catch(e){
+        res.status(404).send('Breed not found');
+    }
+})
+
 module.exports = router;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16'; //https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17
+import Adapter from '../../node_modules/@wojtekmaj/enzyme-adapter-react-17'; //https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17
 
 import DogCreate from '../components/DogCreate';
 import { Provider } from 'react-redux';
@@ -12,7 +12,7 @@ describe('<DogCreate />', () => {
     describe('Estructura', () => {
         let wrapper;
         beforeEach(() => {
-            wrapper = mount(<Provider><DogCreate/></Provider>);
+            wrapper = shallow(<Provider><DogCreate/></Provider>);
         })
         it('Renderiza un <form>', () => {
             expect(wrapper.find('form')).toHaveLength(1)
@@ -89,9 +89,4 @@ describe('<DogCreate />', () => {
             expect(wrapper.find('button[type="submit"]')).toHaveLength(1)
         })
     })
-
-    
-
-
-
 });

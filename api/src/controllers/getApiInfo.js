@@ -4,7 +4,7 @@ const { API_KEY } = process.env;
 // Promesa:
 
 const getApiInfo = () => {
-   // const apiUrl = axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`) parece funcionar sin APIKEY
+   // const apiUrl = axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`) // parece funcionar sin APIKEY
     const apiUrl = axios.get(`https://api.thedogapi.com/v1/breeds`)
 
         .then(res => res.data.map(dog => {
@@ -19,10 +19,10 @@ const getApiInfo = () => {
                     dog.weight.metric.split(' - ')[0] :
                     (dog.weight.metric.split(' - ')[1] ?
                         Math.round(dog.weight.metric.split(' - ')[1] * 0.6) :
-                        '30'),//Math.round(dog.weight.imperial.split(' - ')[1] * 0.6 / 2.205).toString()),
-                weightMax: dog.weight.metric.split(' - ')[1] ?
-                    dog.weight.metric.split(' - ')[1] :
-                    '39',//Math.round(parseInt(dog.weight.imperial.split(' - ')[1]) / 2.205).toString(),
+                       Math.round(parseInt(dog.weight.imperial.split(' - ')[0])/ 2.205).toString()),
+                weightMax: dog.weight.imperial.split(' - ')[1]?
+                Math.round(parseInt(dog.weight.imperial.split(' - ')[1])/ 2.205).toString():
+                Math.round(parseInt(dog.weight.imperial.split(' - ')[0])/ 2.205*1.3).toString(),
                 life_span: dog.life_span,
                 temperaments: dog.temperament ? dog.temperament : null,
                 image: dog.image.url,
